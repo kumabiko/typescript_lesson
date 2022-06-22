@@ -1,6 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+
+// 型を見るとそのまま、入っている　リテラル型と言い、文字列の場合は文字列リテラルという
+// const name: "hello"
+const name = "hello";
+
+// let name2: string
+let name2 = "hello";
+
+let array1 = [true, false];
+let array2 = [0, 1, "hello"];
+
+// Objectの型定義
+interface NAME {
+  first: string;
+  middle?: string; //?をつけると必須ではなくなる
+  last: string | null; // stringかnullを許容する
+}
+
+let nameObj: NAME = {
+  first: "Yamada",
+  last: "Taro",
+};
+
+// 関数の型定義
+const func1 = (x: number, y: number): number => {
+  return x + y;
+};
 
 function App() {
   return (
