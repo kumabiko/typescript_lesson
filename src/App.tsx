@@ -56,6 +56,14 @@ value = true;
 let arrayUni: (number | string)[];
 arrayUni = [0, 1, 2, "Hello"];
 
+// Loteral Types
+let company: "Facebook" | "Google" | "Amazon";
+
+company = "Amazon";
+
+let memory: 256 | 512;
+memory = 512;
+
 function App() {
   return (
     <div className="App">
