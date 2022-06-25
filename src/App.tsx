@@ -93,6 +93,28 @@ const SPORTS = {
 // keySportsは"Soccer"と"Baseball"しか受け付けなくなる
 let keySports: keyof typeof SPORTS;
 
+// enum（列挙型）
+// 可視性をあげて、バグを防ぐ為
+enum OS {
+  Windows,
+  Mac,
+  Linux,
+}
+interface PC {
+  id: number;
+  OSType: OS;
+}
+
+const PC1: PC = {
+  id: 1,
+  OSType: OS.Windows,
+};
+
+const PC2: PC = {
+  id: 2,
+  OSType: OS.Mac,
+};
+
 function App() {
   return (
     <div className="App">
