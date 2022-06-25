@@ -67,6 +67,7 @@ let memory: 256 | 512;
 memory = 512;
 
 // typeof
+// JSONのデータ型が複雑な構造を持っていた時に、typeofで継承する事が出来るので、開発者が楽に設定する事が出来る
 let msg: string = "Hi";
 let msg2: typeof msg;
 
@@ -74,6 +75,23 @@ msg2 = "hello";
 
 let animal = { cat: "small cat" };
 let newAnimal: typeof animal = { cat: "big cat" };
+
+// keyof
+// Union Typeで型付けする
+type KEYS = {
+  primary: string;
+  secondary: string;
+};
+let key: keyof KEYS;
+key = "primary";
+
+// typeof + keyof
+const SPORTS = {
+  soccer: "Soccer",
+  baseball: "Baseball",
+};
+// keySportsは"Soccer"と"Baseball"しか受け付けなくなる
+let keySports: keyof typeof SPORTS;
 
 function App() {
   return (
