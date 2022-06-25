@@ -94,6 +94,7 @@ const SPORTS = {
 let keySports: keyof typeof SPORTS;
 
 // enum（列挙型）
+// 定数をひとまとめにしておくのに便利な機能
 // 可視性をあげて、バグを防ぐ為
 enum OS {
   Windows,
@@ -114,6 +115,14 @@ const PC2: PC = {
   id: 2,
   OSType: OS.Mac,
 };
+
+// 型の互換性
+const comp1 = "test";
+// 抽象的な文字列の型に、文字列リテラルを代入する
+let comp2: string = comp1;
+
+let funcComp1 = (x: number) => {};
+let funcComp2 = (x: string) => {};
 
 function App() {
   return (
