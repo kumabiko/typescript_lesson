@@ -124,6 +124,60 @@ let comp2: string = comp1;
 let funcComp1 = (x: number) => {};
 let funcComp2 = (x: string) => {};
 
+// Generics ジェネリクス
+// テンプレートを用意しておき、実際の使うタイミングで型を定義して使う
+interface GEN<T> {
+  item: T;
+}
+const gen0: GEN<string> = { item: "Hello" };
+// const gen1: GEN = { item: "Hello" };
+const gen2: GEN<number> = { item: 12 };
+
+// デフォルトを設定できる
+interface GEN1<T = string> {
+  item: T;
+}
+// 型を定義しなくても使える
+const gen3: GEN1 = { item: "Hello" };
+
+// stringかnumberしか指定出来なくなる　extends
+interface GEN2<T extends string | number> {
+  item: T;
+}
+const gen4s: GEN2<string> = { item: "hello" };
+
+// 関数の引数
+function funcGen<T>(props: T) {
+  return { item: props };
+}
+
+const gen6 = funcGen<string>("test");
+const gen7 = funcGen<string | null>(null);
+
+// 関数のextendsの使い方
+function funcGen1<T extends string | null>(props: T) {
+  return { value: props };
+}
+
+const gen8 = funcGen1("Hello");
+// const gen9 = funcGen1(123); 数値エラー
+
+// Prppsの使い方
+interface Props {
+  price: number;
+}
+
+function funcGen3<T extends Props>(props: T) {
+  return { value: props.price };
+}
+
+const gen10 = funcGen3({ price: 10 });
+
+// Arrow関数
+const funcGen4 = <T extends Props>(props: T) => {
+  return { value: props.price };
+};
+
 function App() {
   return (
     <div className="App">
