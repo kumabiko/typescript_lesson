@@ -1,6 +1,11 @@
 import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
+import Data from "./data.json";
+import TestComponent from "./TestComponent";
+
+// typeofの応用として、JSONの型推定が楽にできる
+type USERS = typeof Data;
 
 // 型を見るとそのまま、入っている　リテラル型と言い、文字列の場合は文字列リテラルという
 // const name: "hello"
@@ -178,25 +183,14 @@ const funcGen4 = <T extends Props>(props: T) => {
   return { value: props.price };
 };
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <TestComponent text="Hello from App" />
       </header>
     </div>
   );
-}
+};
 
 export default App;
